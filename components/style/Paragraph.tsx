@@ -6,7 +6,6 @@ type Props = {
 };
 
 const pStyles = css`
-  padding: 0 1rem;
   font-family: 'Catamaran', sans-serif;
 `;
 
