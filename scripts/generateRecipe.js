@@ -9,7 +9,7 @@ const RECIPE_PAGE_DIR = path.join(process.cwd(), 'pages/recipes');
 
 function validateLength(minimumLength) {
   return function validate(answer) {
-    return answer.length > minimumLength;
+    return answer.length >= minimumLength;
   };
 }
 
@@ -56,7 +56,7 @@ const questions = [
     name: 'name',
     suffix: ' (of the dish)',
     validate: function validate(answer) {
-      const isLongEnough = validateLength(1)(answer);
+      const isLongEnough = validateLength(2)(answer);
       if (!isLongEnough) {
         return '"Name" is too short. Needs to be at least two characters.';
       }
@@ -68,7 +68,7 @@ const questions = [
     name: 'slug',
     suffix: ' (Will be used for the url and filename)',
     validate: async function validate(answer) {
-      const isLongEnough = validateLength(1)(answer);
+      const isLongEnough = validateLength(2)(answer);
       if (!isLongEnough) {
         return '"Slug" is too short. Needs to be at least two characters.';
       }
@@ -91,17 +91,22 @@ const questions = [
     name: 'category',
     suffix: ' (What type of dish it is)',
     validate: function validate(answer) {
-      const isLongEnough = validateLength(1)(answer);
+      const isLongEnough = validateLength(2)(answer);
       if (!isLongEnough) {
         return '"Category" is too short. Needs to be at least two characters.';
       }
       return true;
     },
   },
+  {
+    type: 'input',
+    name: 'timeToCook',
+    message: 'time to cook',
+  },
 ];
 
-function createMetadata(filename, slug, name, category) {
-  return `{\n  "filename": "${filename}.mdx",\n  "slug": "${slug}",\n  "name": "${name}",\n  "category": "${category}"\n}\n`;
+function createMetadata(filename, slug, name, category, timeToCook = '?') {
+  return `{\n  "filename": "${filename}.mdx",\n  "slug": "${slug}",\n  "name": "${name}",\n  "category": "${category}"\n,  "time-to-cook": "${timeToCook}"\n}\n`;
 }
 
 function createRecipeTemplate(name) {
@@ -119,9 +124,9 @@ function createFile(filename, data) {
   });
 }
 
-function createMetadataFile(name, slug, category) {
+function createMetadataFile(name, slug, category, timeToCook) {
   const filename = `${RECIPE_METADATA_DIR}/${slug}.json`;
-  const data = createMetadata(slug, slug, name, category);
+  const data = createMetadata(slug, slug, name, category, timeToCook);
   return createFile(filename, data);
 }
 
@@ -136,7 +141,12 @@ function createRecipeTemplateFile(name, slug) {
     const answers = await inquirer.prompt(questions);
 
     try {
-      await createMetadataFile(answers.name, answers.slug, answers.category);
+      await createMetadataFile(
+        answers.name,
+        answers.slug,
+        answers.category,
+        answers.timeToCook
+      );
     } catch (error) {
       console.error('Error writing metadata file!', error);
       process.exit(1);
