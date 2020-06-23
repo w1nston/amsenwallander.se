@@ -3,22 +3,23 @@ import Link from 'next/link';
 import { css, jsx } from '@emotion/core';
 
 const navbarStyles = css`
+  align-items: center;
   background-color: tomato;
   box-shadow: 0 0.2rem 0.2rem -0.2rem #4d4a48;
-  padding: 2rem 0;
   display: flex;
   font-size: 1.5rem;
+  height: 5.5rem;
   justify-content: space-evenly;
-  align-items: center;
+  padding: 2rem 0;
+  position: sticky;
+  top: 0;
+  width: 100vw;
+  z-index: 1;
 
   a {
     color: #fefdfa;
     text-decoration: none;
   }
-`;
-
-const logoStyles = css`
-  width: 3rem;
 `;
 
 export default function Navbar() {
@@ -33,10 +34,3 @@ export default function Navbar() {
     </nav>
   );
 }
-/*
-<Link href="/">
-        <a>
-          <img src="/images/jaw_logo.svg" css={logoStyles} />
-        </a>
-      </Link>
-      */
