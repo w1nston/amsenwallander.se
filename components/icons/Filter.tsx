@@ -1,4 +1,12 @@
-export default function Filter({ className }) {
+/** @jsx jsx */
+import { css, jsx, InterpolationWithTheme } from '@emotion/core';
+
+type Props = {
+  css: InterpolationWithTheme<any>;
+  className?: string;
+};
+
+export default function Filter({ className }: Props) {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"

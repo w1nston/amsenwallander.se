@@ -1,62 +1,27 @@
 /** @jsx jsx */
+import { useState } from 'react';
 import Head from 'next/head';
 import { css, jsx } from '@emotion/core';
 import { getRecipeLinks } from '../../api/recipe';
 import RecipeLinks from '../../components/recipe/RecipeLinks';
-import { IRecipeLink } from '../../api/recipe/index';
-import Filter from '../../components/icons/Filter';
+import { IRecipeLink, Category } from '../../api/recipe/index';
+import FloatingButton from '../../components/recipe/FloatingButton';
 
 type Props = {
   recipeLinks: IRecipeLink[];
 };
 
-/*
-display: inline-block;
-    border: none;
-    padding: 1rem 2rem;
-    margin: 0;
-    text-decoration: none;
-    background: #0069ed;
-    color: #ffffff;
-    font-family: sans-serif;
-    font-size: 1rem;
-    cursor: pointer;
-    text-align: center;
-    transition: background 250ms ease-in-out, 
-                transform 150ms ease;
-    -webkit-appearance: none;
-    -moz-appearance: none;
-}
-
-button:hover,
-button:focus {
-    background: #0053ba;
-}
-
-button:focus {
-    outline: 1px solid #fff;
-    outline-offset: -4px;
-}
-
-button:active {
-    transform: scale(0.99);
-}
-*/
-
-const buttonStyles = css`
+const clearFilterButtonStyles = css`
   color: #fefdfa;
-  position: fixed;
-  bottom: 0;
-  right: 0;
-  margin: 0 1rem 1rem 0;
-  width: 4rem;
-  height: 4rem;
-  border-radius: 50%;
-  font-size: 3rem;
-  background-color: tomato;
+  background-color: #47b5ff;
+  text-transform: uppercase;
   text-decoration: none;
   border: none;
-  box-shadow: 6px 8px 8px -8px #4d4a48;
+  height: 4rem;
+  font-size: 1.2rem;
+  width: 100vw;
+  position: fixed;
+  bottom: 0;
 
   &:active {
     transform: scale(0.98);
@@ -67,27 +32,45 @@ const buttonStyles = css`
   }
 `;
 
-const filterIconStyles = css`
-  width: 1.8rem;
+const noFilterMatchContainerStyles = css`
+  padding: 1.5rem;
 `;
 
-function FloatingButton() {
-  return (
-    <button css={buttonStyles}>
-      <Filter css={filterIconStyles} />
-    </button>
-  );
-}
-
 export default function Recipes({ recipeLinks }: Props) {
+  const [filterCategory, setFilterCategory] = useState<Category | null>(null);
+
+  function handleFilterSelected(category: Category) {
+    setFilterCategory(category);
+  }
+
+  function handleClearFilter(event: any) {
+    event.preventDefault();
+    setFilterCategory(null);
+  }
+
+  const recipes = filterCategory
+    ? recipeLinks.filter((recipe) => recipe.category === filterCategory)
+    : recipeLinks;
+
   return (
     <>
       <Head>
         <title>AW - Recept</title>
       </Head>
       <main>
-        <RecipeLinks recipeLinks={recipeLinks} />
-        <FloatingButton />
+        {recipes.length > 0 ? (
+          <RecipeLinks recipeLinks={recipes} />
+        ) : (
+          <div css={noFilterMatchContainerStyles}>
+            <p>Inga recept hittade med kategori: {filterCategory}.</p>
+          </div>
+        )}
+        {filterCategory ? (
+          <button css={clearFilterButtonStyles} onClick={handleClearFilter}>
+            Rensa filter
+          </button>
+        ) : null}
+        <FloatingButton onFilterSelected={handleFilterSelected} />
       </main>
     </>
   );

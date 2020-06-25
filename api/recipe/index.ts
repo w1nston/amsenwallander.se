@@ -4,11 +4,22 @@ import path from 'path';
 const RECIPE_METADATA_DIR = path.join(process.cwd(), 'metadata/recipes');
 const MARKDOWN_EXTENSIONS = ['md', 'mdx'];
 
+export type Category =
+  | 'Frukost'
+  | 'Middag'
+  | 'Efterrätt'
+  | 'Dryck'
+  | 'Godis'
+  | 'Tillbehör'
+  | 'Bakverk'
+  | 'Bröd'
+  | 'Basrecept';
+
 export type IRecipeLink = {
   filename: string;
   slug: string;
   name: string;
-  category: string; // TODO: perhaps string[]...
+  category: Category;
   // TODO: also, keywords: string[] ?
 };
 
