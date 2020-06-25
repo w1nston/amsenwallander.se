@@ -10,7 +10,7 @@ const navbarStyles = css`
   font-size: 1.5rem;
   height: 5.5rem;
   justify-content: space-evenly;
-  padding: 2rem 0;
+  align-items: center;
   position: sticky;
   top: 0;
   width: 100vw;

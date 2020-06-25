@@ -3,6 +3,7 @@
 const fs = require('fs');
 const path = require('path');
 const inquirer = require('inquirer');
+const { categories } = require('../data');
 
 const RECIPE_METADATA_DIR = path.join(process.cwd(), 'metadata/recipes');
 const RECIPE_PAGE_DIR = path.join(process.cwd(), 'pages/recipes');
@@ -87,9 +88,10 @@ const questions = [
     },
   },
   {
-    type: 'input',
+    type: 'list',
     name: 'category',
     suffix: ' (What type of dish it is)',
+    choices: categories,
     validate: function validate(answer) {
       const isLongEnough = validateLength(2)(answer);
       if (!isLongEnough) {
