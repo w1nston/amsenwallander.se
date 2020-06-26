@@ -13,7 +13,7 @@ const containerStyles = css`
   padding: 1.5rem;
   background-color: #faf0e630;
   margin: 1rem 0;
-  box-shadow: 0 6px 6px -4px #4d4a48;
+  box-shadow: 0 2px 6px -4px #4d4a48;
   border: none;
   width: 100vw;
   display: flex;
