@@ -9,6 +9,7 @@ type Props = {
   category: string;
 };
 
+// media-query desktop -> pointer: pointer!
 const containerStyles = css`
   padding: 1.5rem;
   background-color: #faf0e630;
