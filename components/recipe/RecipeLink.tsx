@@ -18,6 +18,7 @@ const containerStyles = css`
   border: none;
   width: 100vw;
   display: flex;
+  cursor: pointer;
   flex-direction: column;
   text-align: start;
 `;

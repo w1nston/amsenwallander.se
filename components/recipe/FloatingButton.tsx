@@ -20,6 +20,7 @@ const expand = keyframes`
 
 const buttonStyles = css`
   color: #fefdfa;
+  cursor: pointer;
   position: fixed;
   bottom: 0;
   right: 0;
@@ -68,6 +69,7 @@ const menuButtonContainerStyles = css`
 const menuButtonStyles = css`
   color: #fefdfa;
   background-color: #47b5ff;
+  cursor: pointer;
   text-transform: uppercase;
   text-decoration: none;
   border: none;

@@ -14,6 +14,7 @@ type Props = {
 const clearFilterButtonStyles = css`
   color: #fefdfa;
   background-color: #47b5ff;
+  cursor: pointer;
   text-transform: uppercase;
   text-decoration: none;
   border: none;
