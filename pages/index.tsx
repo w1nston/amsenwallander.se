@@ -10,7 +10,7 @@ export default function Now() {
   return (
     <div css={containerStyles}>
       <Head>
-        <title>AW</title>
+        <title>Amsen-Wallander</title>
       </Head>
 
       <main>Well now...</main>
