@@ -56,7 +56,7 @@ export default function Recipes({ recipeLinks }: Props) {
   return (
     <>
       <Head>
-        <title>AW - Recept</title>
+        <title>Recept</title>
       </Head>
       <main>
         {recipes.length > 0 ? (

@@ -4,7 +4,7 @@ export default function WeekMenu() {
   return (
     <div>
       <Head>
-        <title>AW - Veckomeny</title>
+        <title>Veckomeny</title>
       </Head>
       <main>
         <p>TODO: Generera veckomeny</p>

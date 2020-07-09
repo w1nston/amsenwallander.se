@@ -1,0 +1,16 @@
+{
+  "background_color": "#ff6347",
+  "theme_color": "#ff6347",
+  "description": "Personal family website.",
+  "display": "fullscreen",
+  "icons": [
+    {
+      "src": "icon/aw-icon.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    }
+  ],
+  "name": "Amsen-Wallander",
+  "short_name": "AW",
+  "start_url": "/index.html"
+}
