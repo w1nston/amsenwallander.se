@@ -41,7 +41,7 @@ export default function AWApp(props: AppProps) {
       }}
     >
       <Head>
-        <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+        <link rel="icon" type="image/svg+xml" href="/favicon.png" />
         <link
           href="https://fonts.googleapis.com/css?family=Open+Sans|Roboto|Catamaran:wght@300&display=swap"
           rel="stylesheet"
