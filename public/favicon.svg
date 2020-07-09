@@ -7,9 +7,12 @@
    xmlns="http://www.w3.org/2000/svg"
    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
-   width="32"
-   height="32"
-   viewBox="0 0 8.4666696 8.4666696"
+   inkscape:export-ydpi="2467.55"
+   inkscape:export-xdpi="2467.55"
+   inkscape:export-filename="/Users/w1nston/bitmap.png"
+   width="16"
+   height="16"
+   viewBox="0 0 4.2333352 4.2333352"
    version="1.1"
    id="svg8"
    inkscape:version="1.0 (4035a4f, 2020-05-01)"
@@ -78,10 +81,10 @@
     <text
        xml:space="preserve"
        id="text1413"
-       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:6.34999999999999964px;line-height:1.25;font-family:SignPainter;-inkscape-font-specification:SignPainter;white-space:pre;shape-inside:url(#rect1415);fill:#ff6347;fill-opacity:1;stroke:none;"
-       transform="translate(-0.13363476,-0.46772163)"><tspan
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:3.17499999999999982px;line-height:1.25;font-family:SignPainter;-inkscape-font-specification:SignPainter;white-space:pre;shape-inside:url(#rect1415);fill:#ff6347;fill-opacity:1;stroke:none;"
+       transform="translate(-0.26726953,-0.534539)"><tspan
          x="0.53515625"
-         y="6.5353732"><tspan
-           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:6.35px;font-family:SignPainter;-inkscape-font-specification:SignPainter;fill:#ff6347;fill-opacity:1">AW</tspan></tspan></text>
+         y="3.6690538"><tspan
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:3.175px;font-family:SignPainter;-inkscape-font-specification:SignPainter;fill:#ff6347;fill-opacity:1">AW</tspan></tspan></text>
   </g>
 </svg>
