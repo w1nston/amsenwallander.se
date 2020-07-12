@@ -10,6 +10,7 @@ const categories = [
   'Bakverk',
   'Bröd',
   'Basrecept',
+  'Sås',
 ];
 
 module.exports = { categories };
