@@ -92,13 +92,6 @@ const questions = [
     name: 'category',
     suffix: ' (What type of dish it is)',
     choices: categories,
-    validate: function validate(answer) {
-      const isLongEnough = validateLength(2)(answer);
-      if (!isLongEnough) {
-        return '"Category" is too short. Needs to be at least two characters.';
-      }
-      return true;
-    },
   },
   {
     type: 'input',
