@@ -5,6 +5,7 @@
   "scripts": {
     "build": "next build",
     "dev": "next dev",
+    "generate:prep": "node ./scripts/generatePreparation.js",
     "generate:recipe": "node ./scripts/generateRecipe.js",
     "start": "next start"
   },

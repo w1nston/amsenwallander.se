@@ -18,11 +18,11 @@ export default function AWApp(props: AppProps) {
             '/serviceWorker.js'
           );
           if (status.installing) {
-            console.log('installing...');
+            console.log('Installing service worker...');
           } else if (status.waiting) {
-            console.log('waiting...');
+            console.log('waiting for service worker...');
           } else if (status.active) {
-            console.log('work work...');
+            console.log('Service worker active!');
           }
         } catch (error) {
           console.error('Error initializing service worker!', error);
