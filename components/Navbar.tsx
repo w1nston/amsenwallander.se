@@ -28,8 +28,8 @@ export default function Navbar() {
       <Link href="/recipes">
         <a>Recept</a>
       </Link>
-      <Link href="/week-menu">
-        <a>Veckomeny</a>
+      <Link href="/preparations">
+        <a>Förberedelser</a>
       </Link>
     </nav>
   );

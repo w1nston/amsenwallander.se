@@ -3,9 +3,8 @@ import { css, jsx } from '@emotion/core';
 import Link from 'next/link';
 
 type Props = {
-  name: string;
+  title: string;
   slug: string;
-  category: string;
 };
 
 const containerStyles = css`
@@ -26,16 +25,11 @@ const primaryTextStyles = css`
   padding: 0 0 12px 0;
 `;
 
-const secondaryTextStyles = css`
-  font-size: 1rem;
-`;
-
-export default function RecipeLink({ name, slug, category }: Props) {
+export default function PreparationLink({ title, slug }: Props) {
   return (
-    <Link href={`recipes/${slug}`}>
+    <Link href={`preparations/${slug}`}>
       <a css={containerStyles}>
-        <div css={primaryTextStyles}>{name}</div>
-        <div css={secondaryTextStyles}>{category}</div>
+        <div css={primaryTextStyles}>{title}</div>
       </a>
     </Link>
   );
