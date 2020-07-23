@@ -2,19 +2,23 @@
 import Head from 'next/head';
 import { css, jsx } from '@emotion/core';
 
-const containerStyles = css`
-  /* padding: 1.5rem; */
+const mainStyles = css`
+  padding: 0 1rem;
 `;
 
 export default function Now() {
   return (
-    <div css={containerStyles}>
+    <div>
       <Head>
         <title>Amsen-Wallander</title>
       </Head>
 
-      <main>Well now...</main>
+      <main css={mainStyles}>
+        <p>
+          Välkommen in till vår stuga. Här samlar vi recept som vi själva brukar
+          laga ofta.
+        </p>
+      </main>
     </div>
   );
 }
-
