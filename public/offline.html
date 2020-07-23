@@ -38,6 +38,10 @@
         box-sizing: inherit;
         position: relative;
       }
+
+      .offline-info {
+        padding: 0 1rem;
+      }
     </style>
   </head>
   <body>
@@ -70,7 +74,6 @@
           width: 100vw;
           z-index: 1;
         }
-        /* .css-77uq9o-Navbar a { */
         .css-77uq9o-Navbar div {
           color: #fefdfa;
         }
@@ -80,8 +83,10 @@
       </nav>
       <div class="css-1h3ocqh-Now">
         <main>
-          Well now... seems like you're experiencing some network troubles,
-          maybe you're offline?
+          <p class="offline-info">
+            Well now... seems like you're experiencing some network troubles,
+            maybe you're offline?
+          </p>
         </main>
       </div>
     </div>
