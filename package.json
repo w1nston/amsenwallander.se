@@ -14,9 +14,11 @@
     "@mdx-js/loader": "^1.6.6",
     "@mdx-js/react": "^1.6.6",
     "@next/mdx": "^9.4.4",
+    "@xstate/react": "^1.0.1",
     "next": "9.4.4",
     "react": "16.13.1",
-    "react-dom": "16.13.1"
+    "react-dom": "16.13.1",
+    "xstate": "^4.13.0"
   },
   "devDependencies": {
     "@types/mdx-js__react": "^1.5.2",
@@ -24,6 +26,6 @@
     "@types/react": "^16.9.38",
     "inquirer": "^7.2.0",
     "prettier": "^2.0.5",
-    "typescript": "^3.9.5"
+    "typescript": "^4.0.3"
   }
 }
