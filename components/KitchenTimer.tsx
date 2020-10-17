@@ -73,7 +73,7 @@ const kitchenTimerMachine = Machine<
         },
         on: {
           '': {
-            target: 'paused',
+            target: 'done',
             cond: 'isTimeUp',
           },
           TICK: {
@@ -97,7 +97,6 @@ const kitchenTimerMachine = Machine<
         },
       },
       done: {
-        type: 'final',
         on: {
           RESET: {
             target: 'idle',
@@ -156,7 +155,7 @@ export default function KitchenTimer(props) {
       {current.value === 'running' ? (
         <button onClick={() => send('PAUSE')}>Pause</button>
       ) : null}
-      {current.value === 'paused' ? (
+      {current.value === 'paused' || current.value === 'done' ? (
         // @ts-ignore
         <button onClick={() => send({ type: 'RESET', duration: 3000 })}>
           Reset
