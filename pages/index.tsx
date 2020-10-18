@@ -1,7 +1,7 @@
 /** @jsx jsx */
 import Head from 'next/head';
 import { css, jsx } from '@emotion/core';
-import KitchenTimer from '../components/KitchenTimer';
+import KitchenTimer from '../components/kitchenTimer/KitchenTimer';
 
 const mainStyles = css`
   padding: 0 1rem;
