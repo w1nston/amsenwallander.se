@@ -44,19 +44,8 @@ export function createKitchenTimerMachine(duration: number) {
       states: {
         running: {
           invoke: {
-            /**
-             * So... this is all nice and well, but ehm...
-             * how do I get the actual value of the timer??
-             */
             id: 'clockTick',
-            src: function outer(context, event) {
-              return function inner(callback) {
-                const id = setInterval(() => callback('TICK'), 1000);
-                return function cleanup() {
-                  clearInterval(id);
-                };
-              };
-            },
+            src: 'timer',
           },
           always: {
             target: 'done',
@@ -144,6 +133,16 @@ export function createKitchenTimerMachine(duration: number) {
       guards: {
         isTimeUp: (context: KitchenTimerContext): boolean =>
           context.elapsed >= context.duration,
+      },
+      services: {
+        timer: function outer() {
+          return function inner(callback) {
+            const id = setInterval(() => callback('TICK'), 1000);
+            return function cleanup() {
+              clearInterval(id);
+            };
+          };
+        },
       },
     }
   );
