@@ -19,7 +19,7 @@ export default function Now() {
           Välkommen in till vår stuga. Här samlar vi recept som vi själva brukar
           laga ofta.
         </p>
-        <KitchenTimer />
+        <KitchenTimer duration={10 * 60 * 1000} />
       </main>
     </div>
   );
