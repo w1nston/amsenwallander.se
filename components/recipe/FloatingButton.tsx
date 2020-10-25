@@ -27,7 +27,8 @@ const buttonStyles = css`
   margin: 0 1rem 1rem 0;
   width: 4rem;
   height: 4rem;
-  border-radius: 50%;
+  border-radius: 2rem;
+  padding: 0; /* fix for webkit circle issue */
   font-size: 3rem;
   background-color: tomato;
   text-decoration: none;
