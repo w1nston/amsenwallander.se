@@ -1,11 +1,8 @@
 import Head from 'next/head';
 import { AppProps } from 'next/app';
-import { MDXProvider } from '@mdx-js/react';
 import { useEffect } from 'react';
-import '../public/styles.css';
-import { Paragraph } from '../components/style/Paragraph';
-import { Layout } from '../components/style/Layout';
-import Navbar from '../components/Navbar';
+import Navbar from '../features/navigation/Navbar';
+import '../styles/globals.css';
 
 export default function AWApp(props: AppProps) {
   const { Component, pageProps } = props;
@@ -34,12 +31,7 @@ export default function AWApp(props: AppProps) {
   }, []);
 
   return (
-    <MDXProvider
-      components={{
-        p: Paragraph,
-        wrapper: Layout,
-      }}
-    >
+    <>
       <Head>
         <link rel="icon" type="image/svg+xml" href="/favicon.png" />
         <link
@@ -50,6 +42,6 @@ export default function AWApp(props: AppProps) {
       </Head>
       <Navbar />
       <Component {...pageProps} />
-    </MDXProvider>
+    </>
   );
 }

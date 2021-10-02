@@ -1,24 +1,20 @@
-/** @jsx jsx */
 import Head from 'next/head';
-import { css, jsx } from '@emotion/core';
+import styles from '../styles/Home.module.css';
 
-const mainStyles = css`
-  padding: 0 1rem;
-`;
-
-export default function Now() {
+function Home() {
   return (
-    <div>
+    <>
       <Head>
         <title>Amsen-Wallander</title>
       </Head>
-
-      <main css={mainStyles}>
+      <main className={styles.main__container}>
         <p>
           Välkommen in till vår stuga. Här samlar vi recept som vi själva brukar
           laga ofta.
         </p>
       </main>
-    </div>
+    </>
   );
 }
+
+export default Home;

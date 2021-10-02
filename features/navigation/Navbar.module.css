@@ -1,0 +1,19 @@
+.navbar__container {
+  align-items: center;
+  background-color: tomato;
+  box-shadow: 0 0.2rem 0.2rem -0.2rem #4d4a48;
+  display: flex;
+  font-size: 1.5rem;
+  height: 5.5rem;
+  justify-content: space-evenly;
+  align-items: center;
+  position: sticky;
+  top: 0;
+  width: 100vw;
+  z-index: 1;
+}
+
+.navbar__container a {
+  color: #fefdfa;
+  text-decoration: none;
+}
