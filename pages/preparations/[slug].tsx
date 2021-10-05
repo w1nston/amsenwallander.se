@@ -3,17 +3,17 @@ import { GetStaticPropsContext, InferGetStaticPropsType } from 'next';
 import { getPreparations } from '../../features/preparations/list/queries/allPreparations';
 import { getPreparation } from '../../features/preparations/preparation/queries/getPreparation';
 import { IPreparation } from '../../features/preparations/types';
+import Preparation from '../../features/preparations/preparation/components/Preparation';
 
 type PreparationProps = {
   preparation: IPreparation;
 };
 
-function Preparation({ preparation }: PreparationProps) {
+function PreparationPage({ preparation }: PreparationProps) {
   return (
-    <section>
-      <h1>{preparation.title}</h1>
-      <article>{documentToReactComponents(preparation.content)}</article>
-    </section>
+    <Preparation title={preparation.title}>
+      {documentToReactComponents(preparation.content)}
+    </Preparation>
   );
 }
 
@@ -45,4 +45,4 @@ export async function getStaticPaths() {
   };
 }
 
-export default Preparation;
+export default PreparationPage;

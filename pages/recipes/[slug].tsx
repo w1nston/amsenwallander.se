@@ -6,6 +6,7 @@ import { getRecipes } from '../../features/recipes/list/queries/allRecipes';
 import { getRecipe } from '../../features/recipes/recipe/queries/getRecipe';
 import { IRecipe } from '../../features/recipes/types';
 import { fixCircularReferenceIssue } from '../../utils/fixCircularReferenceIssue';
+import Recipe from '../../features/recipes/recipe/components/Recipe';
 
 type RecipeProps = {
   recipe: IRecipe;
@@ -21,12 +22,11 @@ const options = {
   },
 };
 
-function Recipe({ recipe }: RecipeProps) {
+function RecipePage({ recipe }: RecipeProps) {
   return (
-    <section>
-      <h1>{recipe.title}</h1>
-      <article>{documentToReactComponents(recipe.content, options)}</article>
-    </section>
+    <Recipe title={recipe.title}>
+      {documentToReactComponents(recipe.content, options)}
+    </Recipe>
   );
 }
 
@@ -35,7 +35,6 @@ export async function getStaticProps(
 ): InferGetStaticPropsType<typeof getStaticProps> {
   const { params } = context;
 
-  
   const rawRecipe = await getRecipe(params.slug);
   const recipe = fixCircularReferenceIssue(rawRecipe);
 
@@ -60,4 +59,4 @@ export async function getStaticPaths() {
   };
 }
 
-export default Recipe;
+export default RecipePage;
