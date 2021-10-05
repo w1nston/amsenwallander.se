@@ -1,17 +1,17 @@
 import { getRecipes } from '../../features/recipes/list/queries/allRecipes';
-import { Recipe } from '../../features/recipes/types';
+import { IRecipe } from '../../features/recipes/types';
 import RecipeLink from '../../features/recipes/list/components/RecipeLink';
+import { fixCircularReferenceIssue } from '../../utils/fixCircularReferenceIssue';
 
 type RecipesProps = {
-  recipes: Recipe[];
+  recipes: IRecipe[];
 };
 
 function Recipes({ recipes }: RecipesProps) {
-  console.log({ recipes });
-
   return recipes.map((recipe) => (
     <RecipeLink
       key={recipe.id}
+      id={recipe.id}
       title={recipe.title}
       slug={recipe.slug}
       tags={recipe.tags}
@@ -20,13 +20,14 @@ function Recipes({ recipes }: RecipesProps) {
 }
 
 export async function getStaticProps() {
-  const recipes = await getRecipes();
+  const rawRecipes = await getRecipes();
+  const recipes = fixCircularReferenceIssue(rawRecipes);
 
   return {
     props: {
       recipes,
-      revalidate: 60, // TODO: figure out a sane default
     },
+      revalidate: 60, // TODO: figure out a sane default
   };
 }
 

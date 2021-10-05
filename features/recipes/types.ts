@@ -1,4 +1,4 @@
-export type Recipe = {
+export type IRecipe = {
   id: string;
   createdAt: Date;
   updatedAt: Date;
