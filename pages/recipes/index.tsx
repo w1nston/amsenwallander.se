@@ -11,7 +11,6 @@ function Recipes({ recipes }: RecipesProps) {
   return recipes.map((recipe) => (
     <RecipeLink
       key={recipe.id}
-      id={recipe.id}
       title={recipe.title}
       slug={recipe.slug}
       tags={recipe.tags}
