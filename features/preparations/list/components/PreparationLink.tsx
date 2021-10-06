@@ -8,7 +8,7 @@ type PreparationProps = {
 
 function PreparationLink({ title, slug }: PreparationProps) {
   return (
-    <Link href={`/preparations/${slug}`}>
+    <Link href={`/preparations/${encodeURIComponent(slug)}`}>
       <a className={styles.preparationLink__container}>
         <div className={styles.preparationLink__text}>{title}</div>
       </a>

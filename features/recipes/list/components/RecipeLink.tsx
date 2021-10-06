@@ -9,7 +9,7 @@ type RecipeProps = {
 
 function RecipeLink({ title, slug, tags }: RecipeProps) {
   return (
-    <Link href={`/recipes/${slug}`}>
+    <Link href={`/recipes/${encodeURIComponent(slug)}`}>
       <a className={styles.recipeLink__container}>
         <div className={styles.recipeLink__primaryText}>{title}</div>
         <div className={styles.recipeLink__secondaryText}>
