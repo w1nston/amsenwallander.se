@@ -26,7 +26,7 @@ export async function getStaticProps() {
     props: {
       recipes,
     },
-      revalidate: 60, // TODO: figure out a sane default
+    revalidate: 60, // TODO: figure out a sane default
   };
 }
 

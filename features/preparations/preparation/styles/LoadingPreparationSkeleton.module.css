@@ -1,0 +1,23 @@
+.loadingPreparationSkeleton__container {
+  padding: 1rem;
+}
+
+.loadingPreparationSkeleton__title {
+  height: 2.5rem;
+  width: 100%;
+  background-color: #ddd;
+  margin-bottom: 1.5rem;
+}
+
+.loadingPreparationSkeleton__instructionsTitle {
+  width: 100%;
+  height: 2rem;
+  background-color: #ddd;
+  margin: 1.5rem 0 1.5rem 0;
+}
+
+.loadingPreparationSkeleton__instructionsText {
+  width: 100%;
+  height: 5rem;
+  background-color: #ddd;
+}

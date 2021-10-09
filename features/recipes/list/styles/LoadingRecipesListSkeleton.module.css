@@ -1,0 +1,26 @@
+.loadingListSkeleton__skeletonItemContainer {
+  padding: 1.5rem;
+  background-color: #faf0e630;
+  margin: 1rem 0;
+  box-shadow: 0 2px 6px -4px #4d4a48;
+  border: none;
+  width: 100vw;
+  height: 6.6rem;
+  display: flex;
+  cursor: pointer;
+  flex-direction: column;
+  text-align: start;
+  color: #333;
+}
+
+.loadingListSkeleton__skeletonItemFirstRow {
+  height: 2.1rem;
+  margin-bottom: 0.4rem;
+  background-color: #ddd;
+}
+
+.loadingListSkeleton__skeletonItemSecondRow {
+  height: 1.5rem;
+  background-color: #ddd;
+  width: 50%;
+}
