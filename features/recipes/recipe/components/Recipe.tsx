@@ -1,5 +1,6 @@
 import { ReactNode } from 'react';
-import styles from '../styles/Recipe.module.css';
+// import styles from '../styles/Recipe.module.css';
+const styles = {};
 
 type RecipeProps = {
   title: string;

@@ -1,3 +1,4 @@
+import Box from '@mui/material/Box';
 import { getRecipes } from '../../features/recipes/list/queries/allRecipes';
 import { IRecipe } from '../../features/recipes/types';
 import RecipeLink from '../../features/recipes/list/components/RecipeLink';
@@ -9,12 +10,9 @@ type RecipesProps = {
 
 function Recipes({ recipes }: RecipesProps) {
   return recipes.map((recipe) => (
-    <RecipeLink
-      key={recipe.id}
-      title={recipe.title}
-      slug={recipe.slug}
-      tags={recipe.tags}
-    />
+    <Box key={recipe.id} sx={{ margin: '1rem 0' }}>
+      <RecipeLink title={recipe.title} slug={recipe.slug} tags={recipe.tags} />
+    </Box>
   ));
 }
 

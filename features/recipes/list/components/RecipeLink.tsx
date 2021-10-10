@@ -1,5 +1,6 @@
-import Link from 'next/link';
-import styles from '../styles/RecipeLink.module.css';
+import Paper from '@mui/material/Paper';
+import Typography from '@mui/material/Typography';
+import Link from '../../../../lib/material-ui/adapters/Link';
 
 type RecipeProps = {
   title: string;
@@ -10,12 +11,10 @@ type RecipeProps = {
 function RecipeLink({ title, slug, tags }: RecipeProps) {
   return (
     <Link href={`/recipes/${encodeURIComponent(slug)}`}>
-      <a className={styles.recipeLink__container}>
-        <div className={styles.recipeLink__primaryText}>{title}</div>
-        <div className={styles.recipeLink__secondaryText}>
-          {tags.join(', ')}
-        </div>
-      </a>
+      <Paper sx={{ padding: '1rem' }}>
+        <Typography variant="h4">{title}</Typography>
+        <Typography variant="caption">{tags.join(', ')}</Typography>
+      </Paper>
     </Link>
   );
 }

@@ -1,5 +1,7 @@
-import styles from '../styles/LoadingRecipeSkeleton.module.css';
+import Box from '@mui/material/Box';
+import Skeleton from '@mui/material/Skeleton';
 
+/*
 function TitleSkeleton() {
   return <div className={styles.loadingRecipeSkeleton__title}></div>;
 }
@@ -34,6 +36,16 @@ function LoadingRecipeSkeleton() {
       <IngredientsSkeleton />
       <InstructionsSkeleton />
     </section>
+  );
+}
+*/
+
+function LoadingRecipeSkeleton() {
+  return (
+    <Box sx={{ padding: '1rem' }}>
+      <Skeleton variant="text" animation="wave" sx={{ marginBottom: '1rem' }} />
+      <Skeleton variant="rectangular" animation="wave" height={100} />
+    </Box>
   );
 }
 
