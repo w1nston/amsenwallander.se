@@ -1,6 +1,7 @@
 import { ReactNode } from 'react';
-// import styles from '../styles/Recipe.module.css';
-const styles = {};
+import Box from '@mui/material/Box';
+import Container from '@mui/material/Container';
+import Typography from '@mui/material/Typography';
 
 type RecipeProps = {
   title: string;
@@ -8,10 +9,12 @@ type RecipeProps = {
 
 function Recipe({ children, title }: RecipeProps) {
   return (
-    <section className={styles.recipe__container}>
-      <h1>{title}</h1>
-      <article>{children}</article>
-    </section>
+    <Container>
+      <Typography variant="h1" sx={{ fontSize: '2.5rem' }}>
+        {title}
+      </Typography>
+      <Box>{children}</Box>
+    </Container>
   );
 }
 

@@ -1,24 +1,12 @@
-import styles from '../styles/LoadingPreparationSkeleton.module.css';
-
-function TitleSkeleton() {
-  return <div className={styles.loadingPreparationSkeleton__title}></div>;
-}
-
-function InstructionsSkeleton() {
-  return (
-    <div>
-      <div className={styles.loadingPreparationSkeleton__instructionsTitle}></div>
-      <div className={styles.loadingPreparationSkeleton__instructionsText}></div>
-    </div>
-  );
-}
+import Box from '@mui/material/Box';
+import Skeleton from '@mui/material/Skeleton';
 
 function LoadingPreparationSkeleton() {
   return (
-    <section className={styles.loadingPreparationSkeleton__container}>
-      <TitleSkeleton />
-      <InstructionsSkeleton />
-    </section>
+    <Box sx={{ padding: '1rem' }}>
+      <Skeleton variant="text" animation="wave" sx={{ marginBottom: '1rem' }} />
+      <Skeleton variant="rectangular" animation="wave" height={100} />
+    </Box>
   );
 }
 

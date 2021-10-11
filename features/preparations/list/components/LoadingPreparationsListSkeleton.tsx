@@ -1,20 +1,22 @@
-import styles from '../styles/LoadingPreparationsListSkeleton.module.css';
+import Box from '@mui/material/Box';
+import Paper from '@mui/material/Paper';
+import Skeleton from '@mui/material/Skeleton';
 
 function SkeletonItem() {
   return (
-    <div className={styles.loadingListSkeleton__skeletonItemContainer}>
-      <div className={styles.loadingListSkeleton__skeletonItemFirstRow}></div>
-    </div>
+    <Paper sx={{ padding: '1rem', margin: '1rem' }}>
+      <Skeleton variant="text" animation="wave" />
+    </Paper>
   );
 }
 
 function LoadingListSkeleton() {
   return (
-    <section>
+    <Box>
       <SkeletonItem />
       <SkeletonItem />
       <SkeletonItem />
-    </section>
+    </Box>
   );
 }
 

@@ -1,5 +1,7 @@
 import { ReactNode } from 'react';
-import styles from '../styles/Preparation.module.css';
+import Box from '@mui/material/Box';
+import Container from '@mui/material/Container';
+import Typography from '@mui/material/Typography';
 
 type PreparationProps = {
   title: string;
@@ -7,10 +9,12 @@ type PreparationProps = {
 
 function Preparation({ children, title }: PreparationProps) {
   return (
-    <section className={styles.preparation__container}>
-      <h1>{title}</h1>
-      <article>{children}</article>
-    </section>
+    <Container>
+      <Typography variant="h1" sx={{ fontSize: '2.5rem' }}>
+        {title}
+      </Typography>
+      <Box>{children}</Box>
+    </Container>
   );
 }
 
