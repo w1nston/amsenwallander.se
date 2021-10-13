@@ -37,6 +37,9 @@ function FilterButton({ categories, onFilterChange }: FilterButtonProps) {
       return;
     }
 
+    event.preventDefault();
+    event.stopPropagation();
+
     setOpen(false);
   }
 
@@ -125,7 +128,7 @@ function FilterButton({ categories, onFilterChange }: FilterButtonProps) {
         color="primary"
         onClick={handleFilterClick}
         aria-label="filter recipes"
-        sx={{ position: 'absolute', bottom: '1rem', right: '1rem' }}
+        sx={{ position: 'fixed', bottom: '1rem', right: '1rem' }}
       >
         <FilterAltIcon />
       </Fab>

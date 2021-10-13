@@ -8,13 +8,9 @@ import Link from '../../../lib/material-ui/adapters/Link';
 export default function ButtonAppBar() {
   return (
     <Box>
-      <AppBar position="static">
+      <AppBar position="fixed">
         <Toolbar>
-          <Link
-            color="inherit"
-            href="/"
-            sx={{ margin: '0.5rem 1rem 0 0' }}
-          >
+          <Link color="inherit" href="/" sx={{ margin: '0.5rem 1rem 0 0' }}>
             <Image src={Logo} alt="Logo" width={48} height={48} />
           </Link>
           <Link

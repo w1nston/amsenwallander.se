@@ -36,15 +36,17 @@ function Recipes({ categories, recipes }: RecipesProps) {
   // TODO Try to use <Stack/> instead of <Box />
   return (
     <>
-      {recipes.filter(filterOnCategory).map((recipe) => (
-        <Box key={recipe.id} sx={{ margin: '1rem 0' }}>
-          <RecipeLink
-            title={recipe.title}
-            slug={recipe.slug}
-            tags={recipe.tags}
-          />
-        </Box>
-      ))}
+      <Box sx={{ maxHeight: '100vh', overflowY: 'scroll' }}>
+        {recipes.filter(filterOnCategory).map((recipe) => (
+          <Box key={recipe.id} sx={{ margin: '1rem 0' }}>
+            <RecipeLink
+              title={recipe.title}
+              slug={recipe.slug}
+              tags={recipe.tags}
+            />
+          </Box>
+        ))}
+      </Box>
       <FilterButton
         categories={categories}
         onFilterChange={handleFilterChange}
@@ -55,7 +57,7 @@ function Recipes({ categories, recipes }: RecipesProps) {
           color="secondary"
           onClick={handleClickResetFilter}
           sx={{
-            position: 'absolute',
+            position: 'fixed',
             bottom: '1rem',
             height: '3.5rem',
             width: '72vw',
@@ -68,8 +70,13 @@ function Recipes({ categories, recipes }: RecipesProps) {
   );
 }
 
+function capitalize(tag: string): string {
+  const lowerCaseTag = tag.toLowerCase();
+  return lowerCaseTag.substring(0, 1).toUpperCase() + lowerCaseTag.substring(1);
+}
+
 function transformTagsToSet(acc: Set<string>, tags: string[]): Set<string> {
-  tags.forEach((tag) => {
+  tags.map(capitalize).forEach((tag) => {
     acc.add(tag);
   });
   return acc;
