@@ -16,12 +16,17 @@ export default function AWApp(props: AppProps) {
   const LoadingSkeleton = useLoadingSkeleton();
 
   return (
-    <ThemeProvider theme={theme}>
-      <Navbar />
-      <CssBaseline />
-      <Box sx={{ padding: '1rem' }}>
-        {LoadingSkeleton ? <LoadingSkeleton /> : <Component {...pageProps} />}
-      </Box>
-    </ThemeProvider>
+    <>
+      <Head>
+        <meta name="viewport" content="initial-scale=1, width=device-width" />
+      </Head>
+      <ThemeProvider theme={theme}>
+        <Navbar />
+        <CssBaseline />
+        <Box sx={{ padding: '1rem' }}>
+          {LoadingSkeleton ? <LoadingSkeleton /> : <Component {...pageProps} />}
+        </Box>
+      </ThemeProvider>
+    </>
   );
 }

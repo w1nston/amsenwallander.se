@@ -9,6 +9,21 @@ type PreparationsProps = {
 
 const TEN_MINUTES = 60 * 10;
 
+function alphabeticalOrder(
+  firstElement: IPreparation,
+  secondElement: IPreparation
+) {
+  if (firstElement.title < secondElement.title) {
+    return -1;
+  }
+
+  if (firstElement.title > secondElement.title) {
+    return 1;
+  }
+
+  return 0;
+}
+
 function Preparations({ preparations }: PreparationsProps) {
   return preparations.map((preparation) => (
     <Box key={preparation.id} sx={{ margin: '1rem 0' }}>
@@ -26,7 +41,7 @@ export async function getStaticProps() {
 
   return {
     props: {
-      preparations,
+      preparations: preparations.sort(alphabeticalOrder),
     },
     revalidate: TEN_MINUTES,
   };

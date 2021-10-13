@@ -11,7 +11,6 @@ export default class MyDocument extends Document {
         <Head>
           {/* PWA primary color */}
           <meta name="theme-color" content={theme.palette.primary.main} />
-          <meta name="viewport" content="initial-scale=1, width=device-width" />
           <link rel="icon" type="image/svg+xml" href="/favicon.png" />
           <link rel="manifest" href="/a2hs.webmanifest" />
           <link
