@@ -1,6 +1,7 @@
-import { IRecipe } from '../types';
+import { IRecipe } from '../../../@types/index';
 
 export function transformEntryToRecipe(entry: unknown): IRecipe {
+  // @ts-ignore
   const { sys, fields } = entry;
 
   // TODO: fields with types?

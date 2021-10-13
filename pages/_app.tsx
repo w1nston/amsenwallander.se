@@ -16,24 +16,12 @@ export default function AWApp(props: AppProps) {
   const LoadingSkeleton = useLoadingSkeleton();
 
   return (
-    <>
-      <Head>
-        <meta name="viewport" content="initial-scale=1, width=device-width" />
-
-        <link rel="icon" type="image/svg+xml" href="/favicon.png" />
-        <link
-          href="https://fonts.googleapis.com/css?family=Open+Sans|Roboto|Catamaran:wght@300&display=swap"
-          rel="stylesheet"
-        />
-        <link rel="manifest" href="/a2hs.webmanifest" />
-      </Head>
-      <ThemeProvider theme={theme}>
-        <Navbar />
-        <CssBaseline />
-        <Box sx={{ padding: '1rem' }}>
-          {LoadingSkeleton ? <LoadingSkeleton /> : <Component {...pageProps} />}
-        </Box>
-      </ThemeProvider>
-    </>
+    <ThemeProvider theme={theme}>
+      <Navbar />
+      <CssBaseline />
+      <Box sx={{ padding: '1rem' }}>
+        {LoadingSkeleton ? <LoadingSkeleton /> : <Component {...pageProps} />}
+      </Box>
+    </ThemeProvider>
   );
 }

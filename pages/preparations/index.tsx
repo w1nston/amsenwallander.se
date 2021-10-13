@@ -1,7 +1,7 @@
 import Box from '@mui/material/Box';
 import { getPreparations } from '../../features/preparations/list/queries/allPreparations';
-import { IPreparation } from '../../features/preparations/types';
 import PreparationLink from '../../features/preparations/list/components/PreparationLink';
+import { IPreparation } from '../../@types/index';
 
 type PreparationsProps = {
   preparations: IPreparation[];

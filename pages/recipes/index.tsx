@@ -2,10 +2,10 @@ import { useState } from 'react';
 import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
 import { getRecipes } from '../../features/recipes/list/queries/allRecipes';
-import { IRecipe } from '../../features/recipes/types';
 import RecipeLink from '../../features/recipes/list/components/RecipeLink';
 import FilterButton from '../../features/recipes/list/components/FilterButton';
 import { fixCircularReferenceIssue } from '../../utils/fixCircularReferenceIssue';
+import { IRecipe } from '../../@types/index';
 
 type RecipesProps = {
   recipes: IRecipe[];
@@ -75,6 +75,18 @@ function transformTagsToSet(acc: Set<string>, tags: string[]): Set<string> {
   return acc;
 }
 
+function alphabeticalOrder(firstElement: IRecipe, secondElement: IRecipe) {
+  if (firstElement.title < secondElement.title) {
+    return -1;
+  }
+
+  if (firstElement.title > secondElement.title) {
+    return 1;
+  }
+
+  return 0;
+}
+
 export async function getStaticProps() {
   const rawRecipes = await getRecipes();
   const recipes = fixCircularReferenceIssue(rawRecipes);
@@ -85,7 +97,7 @@ export async function getStaticProps() {
 
   return {
     props: {
-      recipes,
+      recipes: recipes.sort(alphabeticalOrder),
       categories: Array.from(categories),
     },
     revalidate: TEN_MINUTES,

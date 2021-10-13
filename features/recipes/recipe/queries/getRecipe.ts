@@ -1,6 +1,6 @@
 import { client } from '../../../../lib/cms/client';
-import { IRecipe } from '../../types';
 import { transformEntryToRecipe } from '../../transformers/recipeTransformers';
+import { IRecipe } from '../../../../@types/index';
 
 export async function getRecipe(slug: string): Promise<IRecipe> {
   const { items } = await client.getEntries({

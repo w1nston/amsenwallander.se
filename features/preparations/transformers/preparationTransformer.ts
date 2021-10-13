@@ -1,6 +1,7 @@
-import { IPreparation } from '../types';
+import { IPreparation } from '../../../@types/index';
 
 export function transformEntryToPreparation(entry: unknown): IPreparation {
+  // @ts-ignore
   const { sys, fields } = entry;
 
   return {
@@ -10,5 +11,5 @@ export function transformEntryToPreparation(entry: unknown): IPreparation {
     title: fields.title,
     slug: fields.slug,
     content: fields.content,
-  };
+  } as IPreparation;
 }
