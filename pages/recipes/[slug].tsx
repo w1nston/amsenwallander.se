@@ -12,6 +12,8 @@ type RecipeProps = {
   recipe: IRecipe;
 };
 
+const TEN_MINUTES = 60 * 10;
+
 const options = {
   renderNode: {
     [INLINES.ENTRY_HYPERLINK]: (node: Inline | Block) => (
@@ -42,7 +44,7 @@ export async function getStaticProps(
     props: {
       recipe,
     },
-    revalidate: 60, // TODO: figure out a sane default
+    revalidate: TEN_MINUTES,
   };
 }
 

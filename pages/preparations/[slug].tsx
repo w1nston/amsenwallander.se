@@ -9,6 +9,8 @@ type PreparationProps = {
   preparation: IPreparation;
 };
 
+const TEN_MINUTES = 60 * 10;
+
 function PreparationPage({ preparation }: PreparationProps) {
   return (
     <Preparation title={preparation.title}>
@@ -28,7 +30,7 @@ export async function getStaticProps(
     props: {
       preparation,
     },
-    revalidate: 60,
+    revalidate: TEN_MINUTES,
   };
 }
 

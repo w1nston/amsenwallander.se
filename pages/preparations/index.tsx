@@ -7,6 +7,8 @@ type PreparationsProps = {
   preparations: IPreparation[];
 };
 
+const TEN_MINUTES = 60 * 10;
+
 function Preparations({ preparations }: PreparationsProps) {
   return preparations.map((preparation) => (
     <Box key={preparation.id} sx={{ margin: '1rem 0' }}>
@@ -26,7 +28,7 @@ export async function getStaticProps() {
     props: {
       preparations,
     },
-    revalidate: 60, // TODO: figure out a sane default
+    revalidate: TEN_MINUTES,
   };
 }
 
