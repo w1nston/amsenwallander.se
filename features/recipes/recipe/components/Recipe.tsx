@@ -10,7 +10,10 @@ type RecipeProps = {
 function Recipe({ children, title }: RecipeProps) {
   return (
     <Container>
-      <Typography variant="h1" sx={{ fontSize: '2.5rem' }}>
+      <Typography
+        variant="h1"
+        sx={{ fontSize: '2.5rem', wordBreak: 'break-word' }}
+      >
         {title}
       </Typography>
       <Box>{children}</Box>

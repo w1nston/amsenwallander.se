@@ -14,14 +14,35 @@ type RecipeProps = {
 
 const TEN_MINUTES = 60 * 10;
 
+function getEntryLinkUrl(id: string, slug: string): string {
+  switch (id) {
+    case 'preparation': {
+      return `/preparations/${slug}`;
+    }
+    case 'recipe': {
+      return `/recipes/${slug}`;
+    }
+    default: {
+      return `/404`;
+    }
+  }
+}
+
 const options = {
   renderNode: {
     [INLINES.ENTRY_HYPERLINK]: (node: Inline | Block) => {
       // @ts-ignore
       const value = node.content[0].value;
 
+      const { sys, fields } = node.data.target;
+      const { id } = sys.contentType.sys;
+      const { slug } = fields;
+
+      const url = getEntryLinkUrl(id, slug);
+      console.log({ url });
+
       return (
-        <Link href={`/recipes/${node.data.target.fields.slug}`}>
+        <Link href={url}>
           <a>{value}</a>
         </Link>
       );
@@ -39,9 +60,13 @@ function RecipePage({ recipe }: RecipeProps) {
 export async function getStaticProps(context: GetStaticPropsContext) {
   const { params } = context;
 
+  // TODO: handle 404 not found
+
   // @ts-ignore
   const rawRecipe = await getRecipe(params.slug);
   const recipe = fixCircularReferenceIssue(rawRecipe);
+
+  console.log({ recipe, content: recipe.content.content });
 
   return {
     props: {
