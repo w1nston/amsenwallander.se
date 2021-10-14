@@ -60,13 +60,16 @@ function RecipePage({ recipe }: RecipeProps) {
 export async function getStaticProps(context: GetStaticPropsContext) {
   const { params } = context;
 
-  // TODO: handle 404 not found
-
   // @ts-ignore
   const rawRecipe = await getRecipe(params.slug);
-  const recipe = fixCircularReferenceIssue(rawRecipe);
 
-  console.log({ recipe, content: recipe.content.content });
+  if (!rawRecipe) {
+    return {
+      notFound: true,
+    };
+  }
+
+  const recipe = fixCircularReferenceIssue(rawRecipe);
 
   return {
     props: {

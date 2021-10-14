@@ -23,6 +23,12 @@ export async function getStaticProps(context: GetStaticPropsContext) {
   // @ts-ignore
   const preparation = await getPreparation(params.slug);
 
+  if (!preparation) {
+    return {
+      notFound: true,
+    };
+  }
+
   return {
     props: {
       preparation,
