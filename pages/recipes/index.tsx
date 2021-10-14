@@ -96,7 +96,7 @@ function alphabeticalOrder(firstElement: IRecipe, secondElement: IRecipe) {
 
 export async function getStaticProps() {
   const rawRecipes = await getRecipes();
-  const recipes = fixCircularReferenceIssue(rawRecipes);
+  const recipes = fixCircularReferenceIssue(rawRecipes) as IRecipe[];
 
   const categories = recipes
     .map((recipe) => recipe.tags)

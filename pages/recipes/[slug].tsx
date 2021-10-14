@@ -69,7 +69,7 @@ export async function getStaticProps(context: GetStaticPropsContext) {
     };
   }
 
-  const recipe = fixCircularReferenceIssue(rawRecipe);
+  const recipe = fixCircularReferenceIssue(rawRecipe) as IRecipe;
 
   return {
     props: {
