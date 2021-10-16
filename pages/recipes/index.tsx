@@ -59,8 +59,9 @@ function Recipes({ categories, recipes }: RecipesProps) {
           sx={{
             position: 'fixed',
             bottom: '1rem',
-            height: '3.5rem',
-            width: '72vw',
+            height: '5rem',
+            width: '60vw',
+            borderRadius: '1.25rem',
           }}
         >
           Rensa filter
