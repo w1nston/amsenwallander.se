@@ -12,7 +12,11 @@ function Recipe({ children, title }: RecipeProps) {
     <Container>
       <Typography
         variant="h1"
-        sx={{ fontSize: '2.5rem', wordBreak: 'break-word' }}
+        sx={{
+          fontSize: '2.5rem',
+          wordBreak: 'break-word',
+          marginTop: '1.625rem',
+        }}
       >
         {title}
       </Typography>
