@@ -5,6 +5,13 @@ import {
   KeyboardEvent,
   SyntheticEvent,
 } from 'react';
+import Box from '@mui/material/Box';
+import List from '@mui/material/List';
+import ListItem from '@mui/material/ListItem';
+import ListItemIcon from '@mui/material/ListItemIcon';
+import ListItemText from '@mui/material/ListItemText';
+import ListItemButton from '@mui/material/ListItemButton';
+import SwipeableDrawer from '@mui/material/SwipeableDrawer';
 import Grow from '@mui/material/Grow';
 import Stack from '@mui/material/Stack';
 import ClickAwayListener from '@mui/material/ClickAwayListener';
@@ -22,115 +29,72 @@ type FilterButtonProps = {
 
 function FilterButton({ categories, onFilterChange }: FilterButtonProps) {
   const [open, setOpen] = useState<boolean>(false);
-  const anchorRef = useRef<HTMLButtonElement | null>(null);
-  const previousOpen = useRef<boolean>(open);
 
-  function handleFilterClick() {
+  function handleFilterButtonClick() {
     setOpen((state) => !state);
   }
 
-  function handleClickAway(event: Event | SyntheticEvent) {
-    if (
-      anchorRef.current &&
-      anchorRef.current.contains(event.target as HTMLElement)
-    ) {
-      return;
-    }
-
-    event.preventDefault();
-    event.stopPropagation();
-
-    setOpen(false);
-  }
-
-  function handleClickItem(selectedCategory: string) {
+  function handleFilterItemClick(category) {
     if (onFilterChange) {
-      onFilterChange(selectedCategory);
+      onFilterChange(category);
     }
     setOpen(false);
-  }
-
-  useEffect(() => {
-    if (previousOpen.current === true && open === false) {
-      anchorRef.current!.focus();
-    }
-
-    previousOpen.current = open;
-  }, [open]);
-
-  function handleListKeyDown(event: KeyboardEvent) {
-    if (event.key === 'Tab') {
-      event.preventDefault();
-      setOpen(false);
-    } else if (event.key === 'Escape') {
-      setOpen(false);
-    }
   }
 
   return (
     <div>
-      <Popper
+      <SwipeableDrawer
+        anchor="right"
         open={open}
-        anchorEl={anchorRef.current}
-        role={undefined}
-        placement="top-start"
-        transition
-        disablePortal
+        onClose={handleFilterButtonClick}
+        onOpen={() => {
+          setOpen(true);
+        }}
       >
-        {({ TransitionProps, placement }) => (
-          <Grow
-            {...TransitionProps}
-            style={{
-              transformOrigin:
-                placement === 'top-start' ? 'left top' : 'left bottom',
-            }}
-          >
-            <Paper sx={{ marginBottom: '0.5rem' }}>
-              <ClickAwayListener onClickAway={handleClickAway}>
-                <MenuList
-                  autoFocusItem={open}
-                  id="composition-menu"
-                  aria-labelledby="composition-button"
-                  onKeyDown={handleListKeyDown}
-                  sx={{ padding: '0.5rem' }}
+        <Box sx={{ width: 250 }} role="presentation">
+          <List>
+            <ListItem>
+              <ListItemIcon>
+                <FilterAltIcon color="primary" />
+              </ListItemIcon>
+              <ListItemText primary="Filtrera på typ av maträtt" />
+            </ListItem>
+            {categories.map((category) => (
+              <ListItem
+                key={category}
+                onClick={() => handleFilterItemClick(category)}
+              >
+                <ListItemButton
+                  sx={{
+                    backgroundColor: 'secondary.main',
+                    color: '#fff',
+                    borderRadius: 2,
+                    height: '3.5rem',
+                    '&:hover': {
+                      backgroundColor: 'secondary.light',
+                    },
+                  }}
                 >
-                  <Stack spacing={1}>
-                    {categories.map((category) => (
-                      <MenuItem
-                        key={category}
-                        onClick={() => {
-                          handleClickItem(category);
-                        }}
-                        sx={{ padding: 0 }}
-                      >
-                        <Paper
-                          sx={{
-                            fontSize: '1.5rem',
-                            backgroundColor: 'primary.main',
-                            color: '#fff',
-                            width: '100%',
-                            padding: '0.5rem 1rem',
-                          }}
-                        >
-                          {category}
-                        </Paper>
-                      </MenuItem>
-                    ))}
-                  </Stack>
-                </MenuList>
-              </ClickAwayListener>
-            </Paper>
-          </Grow>
-        )}
-      </Popper>
+                  {category}
+                </ListItemButton>
+              </ListItem>
+            ))}
+          </List>
+        </Box>
+      </SwipeableDrawer>
       <Fab
-        ref={anchorRef}
         color="primary"
-        onClick={handleFilterClick}
+        onClick={handleFilterButtonClick}
         aria-label="filter recipes"
-        sx={{ position: 'fixed', bottom: '1rem', right: '1rem' }}
+        sx={{
+          position: 'fixed',
+          bottom: '1rem',
+          right: '1rem',
+          height: '5rem',
+          width: '5rem',
+        }}
       >
-        <FilterAltIcon />
+        <FilterAltIcon sx={{ width: '2.25rem', height: '2.25rem' }} />
       </Fab>
     </div>
   );

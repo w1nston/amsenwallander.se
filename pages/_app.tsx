@@ -23,7 +23,7 @@ export default function AWApp(props: AppProps) {
       <ThemeProvider theme={theme}>
         <Navbar />
         <CssBaseline />
-        <Box sx={{ padding: '5rem 1rem 1rem 1rem' }}>
+        <Box sx={{ padding: '7.875rem 1rem 1rem 1rem' }}>
           {LoadingSkeleton ? <LoadingSkeleton /> : <Component {...pageProps} />}
         </Box>
       </ThemeProvider>
