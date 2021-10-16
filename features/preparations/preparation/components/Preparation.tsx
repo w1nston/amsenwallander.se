@@ -10,7 +10,10 @@ type PreparationProps = {
 function Preparation({ children, title }: PreparationProps) {
   return (
     <Container>
-      <Typography variant="h1" sx={{ fontSize: '2.5rem' }}>
+      <Typography
+        variant="h1"
+        sx={{ fontSize: '2.5rem', marginTop: '1.625rem' }}
+      >
         {title}
       </Typography>
       <Box>{children}</Box>

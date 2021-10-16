@@ -8,7 +8,7 @@ import Link from '../../../lib/material-ui/adapters/Link';
 export default function ButtonAppBar() {
   return (
     <Box>
-      <AppBar position="fixed" sx={{ height: '6.875rem' }}>
+      <AppBar position="fixed" sx={{ height: '5rem' }}>
         <Toolbar
           sx={{
             display: 'flex',
